@@ -1,17 +1,63 @@
 {
-  "name": "branch-name-generator",
+  "name": "test-datrics",
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build"
+    "serve": "vue-cli-service serve --mode dev",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "axios": "^0.26.1",
+    "click-outside-vue3": "^4.0.1",
     "core-js": "^3.8.3",
-    "vue": "^3.2.13"
+    "javascript-time-ago": "^2.3.13",
+    "js-cookie": "^3.0.1",
+    "postcss": "^8.4.13",
+    "postcss-scss": "^4.0.4",
+    "stylelint": "^14.8.1",
+    "stylelint-scss": "^4.2.0",
+    "vue": "^3.2.13",
+    "vue-click-outside": "^1.1.0",
+    "vue-router": "^4.0.14",
+    "vuex": "^4.0.2"
   },
   "devDependencies": {
+    "@babel/core": "^7.12.16",
+    "@babel/eslint-parser": "^7.5.4",
     "@vue/cli-plugin-babel": "~5.0.0",
-    "@vue/cli-service": "~5.0.0"
-  }
+    "@vue/cli-plugin-eslint": "~5.0.0",
+    "@vue/cli-service": "~5.0.0",
+    "eslint": "^8.2.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-plugin-import": "^2.25.3",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-no-cyrillic-string": "^1.0.5",
+    "eslint-plugin-react": "^7.28.0",
+    "eslint-plugin-react-hooks": "^4.3.0",
+    "eslint-plugin-vue": "^8.5.0",
+    "node-sass": "^7.0.1",
+    "sass-loader": "^12.6.0",
+    "stylelint-config-recommended-scss": "^6.0.0"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "plugin:vue/vue3-essential",
+      "eslint:recommended"
+    ],
+    "parserOptions": {
+      "parser": "@babel/eslint-parser"
+    },
+    "rules": {}
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead",
+    "not ie 11"
+  ]
 }

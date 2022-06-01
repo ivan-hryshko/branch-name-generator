@@ -2,7 +2,8 @@
   <div class="layout">
     <div class="container">
       <div class="input">
-        <input type="text"
+        <input
+          type="text"
           v-model="inputName"
           class="input__name"
         >
@@ -11,7 +12,6 @@
           cols="30"
           rows="10"
           class="input__text"
-  
         >
   
         </textarea>
@@ -44,8 +44,8 @@ export default {
     const inputText = ref('DT-4324 \n\n[FE]: Add Deploy`men\'t "tab", on home dashboard.')
 
     const changedText = computed(() => {
-      let newText = inputText.value.replaceAll(' ', '-');
-      newText = newText.replaceAll('\n', '-');
+      let newText = inputText.value.replaceAll(' ', '-')
+      newText = newText.replaceAll('\n', '-')
       return newText
     })
 
@@ -104,6 +104,5 @@ export default {
 .result__title {
   margin-bottom: 20px;
 }
-
 
 </style>
