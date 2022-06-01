@@ -2,29 +2,36 @@
   <div class="layout">
     <div class="container">
       <div class="input">
-        <input
-          type="text"
-          v-model="inputName"
-          class="input__name"
-        >
+        <div>
+          Your name:
+          <input
+            type="text"
+            v-model="inputName"
+            class="input__name"
+          >
+          /
+
+        </div>
         <textarea
           v-model="inputText"
           cols="30"
           rows="10"
           class="input__text"
         >
-  
         </textarea>
 
       </div>
       <div class="result">
         <div class="result__title">
-          result
+          Result:
         </div>
-        <div>
-          {{ inputName }}/{{ changedText }}
-  
+        <div class="result__value">
+          {{ result }}
         </div>
+        <button @click="copyURL">
+          Copy
+
+        </button>
 
       </div>
 
@@ -33,6 +40,7 @@
 </template>
 
 <script>
+
 import { ref, computed } from 'vue'
 
 export default {
@@ -49,10 +57,25 @@ export default {
       return newText
     })
 
+    const result = computed(() => {
+      return `${inputName.value}/${changedText.value}`
+    })
+
+    function copyURL() {
+      // document.execCommand('copy')
+      navigator.clipboard.writeText(result.value).then(() => {
+        /* clipboard successfully set */
+      }, () => {
+        /* clipboard write failed */
+      })
+    }
+
     return {
       inputName,
       inputText,
       changedText,
+      copyURL,
+      result,
     }
   },
 }
@@ -102,6 +125,10 @@ export default {
 }
 
 .result__title {
+  margin-bottom: 20px;
+}
+
+.result__value {
   margin-bottom: 20px;
 }
 
