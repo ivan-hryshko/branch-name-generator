@@ -1,0 +1,77 @@
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 20px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  width: calc(100% - 40px);
+  margin: auto;
+  align-items: center;
+}
+
+.input{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: auto;
+  align-items: center;
+}
+
+.input__name {
+  width: 100px;
+  margin-bottom: 20px;
+}
+
+.input__text {
+  margin-bottom: 20px;
+}
+
+.result {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: auto;
+  align-items: center;
+}
+
+.result__title {
+  margin-bottom: 20px;
+}
+
+.result__value {
+  margin-bottom: 20px;
+}
+
+.result__copy {
+  width: 24px;
+  border: 1px solid black;
+  border-radius: 8px;
+  padding: 8px;
+
+  g {
+    fill: blue;
+
+    path {
+      fill: green;
+      stroke: yellow;
+    }
+  }
+
+
+}
+
+.result__copy-div {
+  width: 24px;
+  border: 1px solid black;
+  border-radius: 8px;
+  padding: 8px;
+  background-image: url(@/assets/copy.svg);
+
+}
+
