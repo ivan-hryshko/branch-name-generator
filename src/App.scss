@@ -10,26 +10,39 @@
 .container {
   display: flex;
   flex-direction: column;
-  width: calc(100% - 40px);
+  width: 600px;
   margin: auto;
-  align-items: center;
+  justify-content: flex-start;
+  align-items: flex-start;
 }
 
 .input{
   display: flex;
   flex-direction: column;
   width: 100%;
-  margin: auto;
-  align-items: center;
+  align-items: flex-start;
+}
+
+.input__title {
+  text-align: start;
+  margin-bottom: 4px;
 }
 
 .input__name {
   width: 100px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .input__text {
-  margin-bottom: 20px;
+  margin-bottom: 40px;
+}
+
+textarea{
+  -webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+
+	width: 100%;
 }
 
 .result {
@@ -37,15 +50,22 @@
   flex-direction: column;
   width: 100%;
   margin: auto;
-  align-items: center;
+  align-items: flex-end;
 }
 
 .result__title {
   margin-bottom: 20px;
+  align-self: center;
+}
+
+.result__block {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .result__value {
-  margin-bottom: 20px;
+  vertical-align: center;
 }
 
 .result__copy {
@@ -53,6 +73,10 @@
   border: 1px solid black;
   border-radius: 8px;
   padding: 8px;
+  margin-left: 8px;
+  cursor: pointer;
+
+  
 
   g {
     fill: blue;
@@ -62,8 +86,10 @@
       stroke: yellow;
     }
   }
+}
 
-
+.result__copy:hover {
+  background-color: #dddddd;
 }
 
 .result__copy-div {
