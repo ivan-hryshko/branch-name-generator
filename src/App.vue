@@ -23,9 +23,6 @@
         />
       </div>
       <div class="result">
-        <div class="result__title">
-          Result:
-        </div>
         <div class="result__block" >
           <div class="result__value">
             {{ result }}
