@@ -27,7 +27,7 @@
           <div class="result__value">
             {{ result }}
           </div>
-          <div>
+          <div class="result__div-copy">
             <svg
               class="result__copy"
               id="Layer_1"
@@ -265,8 +265,9 @@ export default {
       newText = newText.replaceAll('}', '-')
       newText = newText.replaceAll(':', '-')
       newText = newText.replaceAll('=', '-')
-      newText = newText.replaceAll('\`', '-')
-      newText = newText.replaceAll('\'', '-')
+      newText = newText.replaceAll('\`', '')
+      newText = newText.replaceAll('\"', '-')
+      newText = newText.replaceAll('\'', '')
       newText = newText.replaceAll('\?', '-')
       newText = newText.replaceAll('\!', '-')
       newText = newText.replaceAll('\.', '-')

@@ -3,8 +3,16 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
   margin-top: 20px;
+}
+
+html {
+  background-color: #171f24;
+}
+
+body {
+  color: #84C9FB
+  
 }
 
 .container {
@@ -26,15 +34,20 @@
 .input__title {
   text-align: start;
   margin-bottom: 4px;
+  color: #0d96f8
 }
 
 .input__name {
   width: 100px;
   margin-bottom: 10px;
+  background-color: #363636;
+  color: #84C9FB
 }
 
 .input__text {
   margin-bottom: 40px;
+  background-color: #363636;
+  color: #84C9FB
 }
 
 textarea{
@@ -63,11 +76,12 @@ textarea{
   justify-content: flex-end;
   align-items: center;
   width: 100%;
-  margin: 8px;
+  margin: 8px 0;
 }
 
 .result__value {
-  border: 1px solid black;
+  border: 1px solid gray;
+  background-color: rgb(35, 47, 65);
   border-radius: 8px;
   width: 100%;
   text-align: start;
@@ -75,15 +89,21 @@ textarea{
   padding: 8px;
 }
 
+.result__div-copy{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .result__copy {
   width: 24px;
-  border: 1px solid black;
+  border: 1px solid gray;
   border-radius: 8px;
   padding: 8px;
   margin-left: 8px;
   cursor: pointer;
+  background-color: rgb(35, 47, 65);
 
-  
 
   g {
     fill: blue;
@@ -95,8 +115,17 @@ textarea{
   }
 }
 
+.result__copy path {
+  fill: #84C9FB;
+}
+
 .result__copy:hover {
-  background-color: #dddddd;
+  background-color: rgb(32, 76, 142);
+  g {
+  }
+}
+.result__copy:hover path {
+  fill: white;
 }
 
 .result__copy-div {
