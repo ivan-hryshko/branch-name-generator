@@ -23,7 +23,7 @@
         />
       </div>
       <div class="result">
-        <div class="result__block" >
+        <div class="result__block">
           <div class="result__value">
             {{ result }}
           </div>
@@ -95,7 +95,7 @@
             </svg>
           </div>
         </div>
-        <div class="result__block" >
+        <div class="result__block">
           <div class="result__value">
             {{ createNewBranch }}
           </div>
@@ -167,7 +167,7 @@
             </svg>
           </div>
         </div>
-        <div class="result__block" >
+        <div class="result__block">
           <div class="result__value">
             {{ gitPush }}
           </div>
@@ -259,6 +259,23 @@ export default {
     const changedText = computed(() => {
       let newText = inputText.value.replaceAll(' ', '-')
       newText = newText.replaceAll('\n', '-')
+      newText = newText.replaceAll('[', '-')
+      newText = newText.replaceAll(']', '-')
+      newText = newText.replaceAll('{', '-')
+      newText = newText.replaceAll('}', '-')
+      newText = newText.replaceAll(':', '-')
+      newText = newText.replaceAll('=', '-')
+      newText = newText.replaceAll('\`', '-')
+      newText = newText.replaceAll('\'', '-')
+      newText = newText.replaceAll('\?', '-')
+      newText = newText.replaceAll('\!', '-')
+      newText = newText.replaceAll('\.', '-')
+      newText = newText.replaceAll('\,', '-')
+      newText = newText.replaceAll('------', '-')
+      newText = newText.replaceAll('-----', '-')
+      newText = newText.replaceAll('----', '-')
+      newText = newText.replaceAll('---', '-')
+      newText = newText.replaceAll('--', '-')
       return newText
     })
 
