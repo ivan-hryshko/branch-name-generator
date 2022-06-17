@@ -3,7 +3,11 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  margin-top: 20px;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
 }
 
 html {
@@ -14,6 +18,12 @@ body {
   color: #84C9FB
 }
 
+.header {
+  background-color: #031520;
+  font-size: 1.5rem;
+  padding: 0.5rem;
+}
+
 .container {
   display: flex;
   flex-direction: column;
@@ -21,6 +31,7 @@ body {
   margin: auto;
   justify-content: flex-start;
   align-items: flex-start;
+  margin-top: 20px;
 }
 
 .input{

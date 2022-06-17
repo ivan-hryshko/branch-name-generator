@@ -1,5 +1,8 @@
 <template>
   <div class="layout">
+    <div class="header">
+      Branch name generator
+    </div>
     <div class="container">
       <div class="input">
         <div>
