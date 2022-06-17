@@ -24,7 +24,10 @@
       </div>
       <div class="result">
         <div class="result__block">
-          <div class="result__value">
+          <div
+            class="result__value"
+            @click="copyURL(result)"
+          >
             {{ result }}
           </div>
           <div class="result__div-copy">
@@ -96,7 +99,10 @@
           </div>
         </div>
         <div class="result__block">
-          <div class="result__value">
+          <div
+            class="result__value"
+            @click="copyURL(createNewBranch)"
+          >
             {{ createNewBranch }}
           </div>
           <div>
@@ -168,7 +174,10 @@
           </div>
         </div>
         <div class="result__block">
-          <div class="result__value">
+          <div
+            class="result__value"
+            @click="copyURL(gitPush)"
+          >
             {{ gitPush }}
           </div>
           <div>

@@ -12,7 +12,6 @@ html {
 
 body {
   color: #84C9FB
-  
 }
 
 .container {
@@ -38,16 +37,20 @@ body {
 }
 
 .input__name {
-  width: 100px;
+  width: 200px;
   margin-bottom: 10px;
   background-color: #363636;
-  color: #84C9FB
+  color: #84C9FB;
+  font-size: 1rem;
+  padding-left: 0.5rem;
 }
 
 .input__text {
   margin-bottom: 40px;
   background-color: #363636;
-  color: #84C9FB
+  color: #84C9FB;
+  font-size: 1rem;
+  padding-left: 0.5rem;
 }
 
 textarea{
@@ -87,6 +90,12 @@ textarea{
   text-align: start;
   height: 100%;
   padding: 8px;
+  cursor: pointer;
+}
+
+.result__value:hover {
+  background-color: rgb(32, 76, 142);
+  color: white;
 }
 
 .result__div-copy{
