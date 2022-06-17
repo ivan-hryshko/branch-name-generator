@@ -263,6 +263,12 @@ export default {
       newText = newText.replaceAll(']', '-')
       newText = newText.replaceAll('{', '-')
       newText = newText.replaceAll('}', '-')
+      newText = newText.replaceAll('(', '-')
+      newText = newText.replaceAll(')', '-')
+      newText = newText.replaceAll('#', '-')
+      newText = newText.replaceAll('$', '-')
+      newText = newText.replaceAll('%', '-')
+      newText = newText.replaceAll('+', '-')
       newText = newText.replaceAll(':', '-')
       newText = newText.replaceAll('=', '-')
       newText = newText.replaceAll('\`', '')
@@ -277,6 +283,9 @@ export default {
       newText = newText.replaceAll('----', '-')
       newText = newText.replaceAll('---', '-')
       newText = newText.replaceAll('--', '-')
+      if (newText[newText.length - 1] === '-') {
+        newText = newText.slice(0, -1)
+      }
       return newText
     })
 
