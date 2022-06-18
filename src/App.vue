@@ -258,7 +258,7 @@
 
 <script>
 
-import { ref, computed } from 'vue'
+import { ref, computed, crea } from 'vue'
 
 export default {
   name: 'App',
@@ -267,7 +267,7 @@ export default {
   setup() {
     const inputName = ref('ihryshko')
     const inputText = ref('DT-4324 \n\n[FE]: Add Deploy`men\'t "tab", on home dashboard.')
-
+    document.title = 'Branch name generator'
     const changedText = computed(() => {
       let newText = inputText.value.replaceAll(' ', '-')
       newText = newText.replaceAll('\n', '-')
