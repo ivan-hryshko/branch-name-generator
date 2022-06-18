@@ -1,0 +1,78 @@
+.result__title {
+  margin-bottom: 20px;
+  align-self: center;
+}
+
+.result__block {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.result__value {
+  border: 1px solid gray;
+  background-color: rgb(35, 47, 65);
+  border-radius: 8px;
+  width: 100%;
+  text-align: start;
+  height: 100%;
+  padding: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.result__value:hover {
+  background-color: rgb(32, 76, 142);
+  color: white;
+}
+
+.result__div-copy{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.result__copy {
+  width: 24px;
+  border: 1px solid gray;
+  border-radius: 8px;
+  padding: 8px;
+  margin-left: 8px;
+  cursor: pointer;
+  background-color: rgb(35, 47, 65);
+
+
+  g {
+    fill: blue;
+
+    path {
+      fill: green;
+      stroke: yellow;
+    }
+  }
+}
+
+.result__copy path {
+  fill: #84C9FB;
+}
+
+.result__copy:hover {
+  background-color: rgb(32, 76, 142);
+  g {
+  }
+}
+
+.result__copy:hover path {
+  fill: white;
+}
+
+.result__copy-div {
+  width: 24px;
+  border: 1px solid black;
+  border-radius: 8px;
+  padding: 8px;
+  background-image: url(@/assets/copy.svg);
+
+}

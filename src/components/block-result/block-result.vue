@@ -42,3 +42,7 @@ export default {
   },
 }
 </script>
+
+<style lang="scss">
+@import url(./block-result.scss);
+</style>

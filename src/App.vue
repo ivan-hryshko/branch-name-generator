@@ -102,7 +102,6 @@ export default {
     return {
       inputName,
       inputText,
-      changedText,
       result,
       createNewBranch,
       gitPush,
