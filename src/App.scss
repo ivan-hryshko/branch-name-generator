@@ -1,3 +1,4 @@
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -41,6 +42,11 @@ body {
   align-items: flex-start;
 }
 
+.input__title-header {
+  display: flex;
+  align-items: center;
+}
+
 .input__title {
   text-align: start;
   margin-bottom: 4px;
@@ -78,5 +84,48 @@ textarea{
   width: 100%;
   margin: auto;
   align-items: flex-end;
+}
+
+.input__paste{
+  width: 24px;
+  border: 1px solid gray;
+  border-radius: 8px;
+  padding: 8px;
+  margin-left: 8px;
+  cursor: pointer;
+  background-color: rgb(35, 47, 65);
+
+
+  g {
+    fill: blue;
+
+    path {
+      fill: green;
+      stroke: yellow;
+    }
+  }
+}
+
+.input__paste path {
+  fill: #84C9FB;
+}
+
+.input__paste:hover {
+  background-color: rgb(32, 76, 142);
+  g {
+  }
+}
+
+.input__paste:hover path {
+  fill: white;
+}
+
+.input__paste-div {
+  width: 24px;
+  border: 1px solid black;
+  border-radius: 8px;
+  padding: 8px;
+  background-image: url(@/assets/copy.svg);
+
 }
 

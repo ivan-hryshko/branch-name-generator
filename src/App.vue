@@ -16,8 +16,13 @@
           >
           /
         </div>
-        <div class="input__title">
-          Put your text here:
+        <div class="input__title-header">
+          <div class="input__title">
+            Put your text here:
+          </div>
+          <ImagePaste
+            @click="pasteText"
+          />
         </div>
         <textarea
           v-model="inputText"
@@ -44,11 +49,13 @@
 
 import { ref, computed, crea } from 'vue'
 import BlockResult from '@/components/block-result'
+import ImagePaste from '@/assets/image-paste.vue'
 
 export default {
   name: 'App',
   components: {
     BlockResult,
+    ImagePaste,
   },
   setup() {
     const inputName = ref('ihryshko')
@@ -99,12 +106,26 @@ export default {
       return `git push --set-upstream origin testBranch ${result.value}`
     })
 
+    function pasteText() {
+      navigator.clipboard.readText()
+        .then(text => {
+          console.log(text)
+          inputText.value = text
+          // `text` содержит текст, прочитанный из буфера обмена
+        })
+        .catch(err => {
+          // возможно, пользователь не дал разрешение на чтение данных из буфера обмена
+          console.log('Something went wrong', err)
+        })
+    }
+
     return {
       inputName,
       inputText,
       result,
       createNewBranch,
       gitPush,
+      pasteText,
     }
   },
 }
@@ -112,4 +133,6 @@ export default {
 
 <style lang="scss">
 @import url(App.scss);
+@import url(@/assets/scss/styles.scss);
+
 </style>
