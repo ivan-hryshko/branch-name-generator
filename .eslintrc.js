@@ -79,7 +79,7 @@ module.exports = {
     'no-nested-ternary': 'off',
     'consistent-return': 'off',
     yoda: 'error',
-    semi: ['error', 'never'],
+    semi: ['warn', 'never'],
     indent: 'off', // два пробіли
     'template-curly-spacing': 'off',
     'max-len': ['off'],
