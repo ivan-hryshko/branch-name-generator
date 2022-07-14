@@ -23,6 +23,22 @@
           <ImagePaste
             @click="pasteText"
           />
+          <input
+            v-model="isCopyBranch"
+            type="checkbox"
+            style="margin-left:20px"
+          >
+          <div>
+            Branch
+          </div>
+          <input
+            v-model="isCopyUpperCase"
+            type="checkbox"
+            style="margin-left:20px"
+          >
+          <div>
+            UpperCase
+          </div>
         </div>
         <textarea
           v-model="inputText"
@@ -50,7 +66,7 @@
 
 <script>
 
-import { ref, computed, crea } from 'vue'
+import { ref, computed, watch } from 'vue'
 import BlockResult from '@/components/block-result'
 import ImagePaste from '@/assets/image-paste.vue'
 
@@ -63,6 +79,20 @@ export default {
   setup() {
     const inputName = ref('ihryshko')
     const inputText = ref('DT-4324 \n\n[FE]: Add Deploy`men\'t "tab", on home dashboard.')
+    const isCopyBranch = ref(true)
+    const isCopyUpperCase = ref(false)
+
+    watch(() => isCopyBranch.value, () => {
+      if (isCopyBranch.value === true) {
+        isCopyUpperCase.value = false
+      }
+    })
+
+    watch(() => isCopyUpperCase.value, () => {
+      if (isCopyUpperCase.value === true) {
+        isCopyBranch.value = false
+      }
+    })
     document.title = 'Branch name generator'
 
     const changedText = computed(() => {
@@ -114,7 +144,6 @@ export default {
       let upperConst = inputText.value
       const letterToUpper = []
       for (const letter of upperConst) {
-        console.log('in for', letter);
         if (letter === letter.toUpperCase()) {
           if (!letterToUpper.includes(letter)) {
             letterToUpper.push(letter)
@@ -132,14 +161,27 @@ export default {
     function pasteText() {
       navigator.clipboard.readText()
         .then(text => {
-          console.log(text)
           inputText.value = text
           // `text` содержит текст, прочитанный из буфера обмена
         })
         .catch(err => {
           // возможно, пользователь не дал разрешение на чтение данных из буфера обмена
-          console.log('Something went wrong', err)
         })
+      if (isCopyBranch.value) {
+        copyURL(result.value)
+      }
+      if (isCopyUpperCase.value) {
+        copyURL(toUpperConst.value)
+      }
+    }
+
+    function copyURL(value) {
+      // document.execCommand('copy')
+      navigator.clipboard.writeText(value).then(() => {
+        /* clipboard successfully set */
+      }, () => {
+        /* clipboard write failed */
+      })
     }
 
     return {
@@ -148,6 +190,8 @@ export default {
       inputName,
       inputText,
       toUpperConst,
+      isCopyBranch,
+      isCopyUpperCase,
       createNewBranch,
       pasteText,
     }
