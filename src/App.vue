@@ -40,6 +40,9 @@
         <BlockResult
           :text="gitPush"
         />
+        <BlockResult
+          :text="toUpperConst"
+        />
       </div>
     </div>
   </div>
@@ -61,6 +64,7 @@ export default {
     const inputName = ref('ihryshko')
     const inputText = ref('DT-4324 \n\n[FE]: Add Deploy`men\'t "tab", on home dashboard.')
     document.title = 'Branch name generator'
+
     const changedText = computed(() => {
       let newText = inputText.value.replaceAll(' ', '-')
       newText = newText.replaceAll('\n', '-')
@@ -106,6 +110,25 @@ export default {
       return `git push --set-upstream origin testBranch ${result.value}`
     })
 
+    const toUpperConst = computed(() => {
+      let upperConst = inputText.value
+      const letterToUpper = []
+      for (const letter of upperConst) {
+        console.log('in for', letter);
+        if (letter === letter.toUpperCase()) {
+          if (!letterToUpper.includes(letter)) {
+            letterToUpper.push(letter)
+          }
+        }
+      }
+      letterToUpper.forEach(letter => {
+        upperConst = upperConst.replaceAll(letter, `_${letter}`)
+      })
+      upperConst = upperConst.replaceAll('-', '')
+      upperConst = upperConst.toUpperCase()
+      return upperConst
+    })
+
     function pasteText() {
       navigator.clipboard.readText()
         .then(text => {
@@ -120,11 +143,12 @@ export default {
     }
 
     return {
+      result,
+      gitPush,
       inputName,
       inputText,
-      result,
+      toUpperConst,
       createNewBranch,
-      gitPush,
       pasteText,
     }
   },
