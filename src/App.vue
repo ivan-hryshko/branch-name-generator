@@ -248,6 +248,18 @@ export default {
 
 <style lang="scss">
 @import url(App.scss);
-@import url(@/assets/scss/styles.scss);
+// @import url(@/assets/scss/styles.scss);
+
+.result {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: auto;
+  align-items: flex-end;
+
+  .block-result-wrapper {
+    width: 100%;
+  }
+}
 
 </style>
