@@ -24,16 +24,18 @@
             @click="pasteText"
           />
           <input
-            v-model="isCopyBranch"
-            type="checkbox"
+            v-model="selectedMode"
+            type="radio"
+            value="branch"
             style="margin-left:20px"
           >
           <div>
             Branch
           </div>
           <input
-            v-model="isCopyUpperCase"
-            type="checkbox"
+            v-model="selectedMode"
+            type="radio"
+            value="variables"
             style="margin-left:20px"
           >
           <div>
@@ -47,18 +49,31 @@
         />
       </div>
       <div class="result">
-        <BlockResult
-          :text="result"
-        />
-        <BlockResult
-          :text="createNewBranch"
-        />
-        <BlockResult
-          :text="gitPush"
-        />
-        <BlockResult
-          :text="toUpperConst"
-        />
+        <div
+          v-if="isShowBranch"
+          class="block-result-wrapper"
+        >
+          <BlockResult
+            :text="result"
+          />
+          <BlockResult
+            :text="createNewBranch"
+          />
+          <BlockResult
+            :text="gitPush"
+          />
+        </div>
+        <div
+          v-if="isShowVariables"
+          class="block-result-wrapper"
+        >
+          <BlockResult
+            :text="toUpperConst"
+          />
+          <BlockResult
+            :text="toUpperConstWithValue"
+          />
+        </div>
       </div>
     </div>
   </div>
@@ -69,6 +84,11 @@
 import { ref, computed, watch } from 'vue'
 import BlockResult from '@/components/block-result'
 import ImagePaste from '@/assets/image-paste.vue'
+
+const MODE_VALUE = {
+  BRANCH: 'branch',
+  VARIABLES: 'variables',
+}
 
 export default {
   name: 'App',
@@ -81,6 +101,7 @@ export default {
     const inputText = ref('DT-4324 \n\n[FE]: Add Deploy`men\'t "tab", on home dashboard.')
     const isCopyBranch = ref(true)
     const isCopyUpperCase = ref(false)
+    const selectedMode = ref(MODE_VALUE.VARIABLES)
 
     watch(() => isCopyBranch.value, () => {
       if (isCopyBranch.value === true) {
@@ -128,6 +149,14 @@ export default {
       return newText
     })
 
+    const isShowBranch = computed(() => {
+      return selectedMode.value === 'branch'
+    })
+
+    const isShowVariables = computed(() => {
+      return selectedMode.value === 'variables'
+    })
+
     const result = computed(() => {
       return `${inputName.value}/${changedText.value}`
     })
@@ -150,12 +179,26 @@ export default {
           }
         }
       }
-      letterToUpper.forEach(letter => {
-        upperConst = upperConst.replaceAll(letter, `_${letter}`)
-      })
       upperConst = upperConst.replaceAll('-', '')
       upperConst = upperConst.toUpperCase()
       return upperConst
+    })
+
+    const toUpperConstWithValue = computed(() => {
+      let upperConst = inputText.value
+      console.log('upperConst :>> ', upperConst);
+      const letterToUpper = []
+      for (const letter of upperConst) {
+        if (letter === letter.toUpperCase()) {
+          if (!letterToUpper.includes(letter)) {
+            letterToUpper.push(letter)
+          }
+        }
+      }
+      upperConst = upperConst.replaceAll('-', '')
+      upperConst = upperConst.toUpperCase()
+      const resultUpperWithValue = `${upperConst}: '${inputText.value}'`
+      return resultUpperWithValue
     })
 
     function pasteText() {
@@ -190,9 +233,13 @@ export default {
       inputName,
       inputText,
       toUpperConst,
+      toUpperConstWithValue,
       isCopyBranch,
       isCopyUpperCase,
       createNewBranch,
+      selectedMode,
+      isShowBranch,
+      isShowVariables,
       pasteText,
     }
   },
