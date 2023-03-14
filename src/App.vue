@@ -211,11 +211,11 @@ export default {
         .catch(err => {
           // возможно, пользователь не дал разрешение на чтение данных из буфера обмена
         })
-      if (isCopyBranch.value) {
+      if (isShowBranch.value) {
         copyURL(result.value)
       }
-      if (isCopyUpperCase.value) {
-        copyURL(toUpperConst.value)
+      if (isShowVariables.value) {
+        copyURL(toUpperConstWithValue.value)
       }
     }
 
