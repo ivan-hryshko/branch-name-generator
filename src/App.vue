@@ -126,6 +126,7 @@ export default {
       newText = newText.replaceAll('(', '-')
       newText = newText.replaceAll(')', '-')
       newText = newText.replaceAll('#', '-')
+      newText = newText.replaceAll('&', '-')
       newText = newText.replaceAll('$', '-')
       newText = newText.replaceAll('%', '-')
       newText = newText.replaceAll('+', '-')
