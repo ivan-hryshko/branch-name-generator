@@ -180,7 +180,7 @@ export default {
           }
         }
       }
-      upperConst = upperConst.replaceAll('-', '')
+      upperConst = upperConst.replaceAll('-', '_')
       upperConst = upperConst.toUpperCase()
       return upperConst
     })
@@ -196,7 +196,7 @@ export default {
           }
         }
       }
-      upperConst = upperConst.replaceAll('-', '')
+      upperConst = upperConst.replaceAll('-', '_')
       upperConst = upperConst.toUpperCase()
       const resultUpperWithValue = `${upperConst}: '${inputText.value}'`
       return resultUpperWithValue
