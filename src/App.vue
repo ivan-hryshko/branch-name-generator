@@ -15,6 +15,16 @@
             class="input__name"
           >
           /
+          <select
+            v-model="branchType"
+            class="input__name"
+          >
+            <option disabled value="">Выберите один из вариантов</option>
+            <option>feat</option>
+            <option>fix</option>
+            <option>test</option>
+            <option>refactor</option>
+          </select>
         </div>
         <div class="input__title-header">
           <div class="input__title">
@@ -102,6 +112,7 @@ export default {
     const isCopyBranch = ref(true)
     const isCopyUpperCase = ref(false)
     const selectedMode = ref(MODE_VALUE.VARIABLES)
+    const branchType = ref('feat')
 
     watch(() => isCopyBranch.value, () => {
       if (isCopyBranch.value === true) {
@@ -161,7 +172,7 @@ export default {
     })
 
     const result = computed(() => {
-      return `${inputName.value}/${changedText.value}`
+      return `${inputName.value}/${branchType.value}/${changedText.value}`
     })
 
     const createNewBranch = computed(() => {
@@ -243,6 +254,7 @@ export default {
       selectedMode,
       isShowBranch,
       isShowVariables,
+      branchType,
       pasteText,
     }
   },
