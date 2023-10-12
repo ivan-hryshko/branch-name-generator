@@ -15,9 +15,15 @@
             class="input__name"
           >
           /
+          <input
+            v-model="inputVersion"
+            type="text"
+            class="input__version"
+          >
+          /
           <select
             v-model="branchType"
-            class="input__name"
+            class="input__type"
           >
             <option disabled value="">Выберите один из вариантов</option>
             <option>feat</option>
@@ -108,10 +114,11 @@ export default {
   },
   setup() {
     const inputName = ref('ihryshko')
+    const inputVersion = ref('2-14')
     const inputText = ref('DT-4324 \n\n[FE]: Add Deploy`men\'t "tab", on home dashboard.')
     const isCopyBranch = ref(true)
     const isCopyUpperCase = ref(false)
-    const selectedMode = ref(MODE_VALUE.VARIABLES)
+    const selectedMode = ref(MODE_VALUE.BRANCH)
     const branchType = ref('feat')
 
     watch(() => isCopyBranch.value, () => {
@@ -172,7 +179,7 @@ export default {
     })
 
     const result = computed(() => {
-      return `${inputName.value}/${branchType.value}/${changedText.value}`
+      return `${inputName.value}/${inputVersion.value}/${branchType.value}/${changedText.value}`
     })
 
     const createNewBranch = computed(() => {
@@ -245,6 +252,7 @@ export default {
       result,
       gitPush,
       inputName,
+      inputVersion,
       inputText,
       toUpperConst,
       toUpperConstWithValue,
